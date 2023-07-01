@@ -32,7 +32,7 @@
 
   var tabC = 1;
   const defaultTabProperties = {
-    title: "New Hypertab",
+    title: "New Tab",
     favicon: false,
   };
 
@@ -86,7 +86,7 @@
 
       this.hypertabContainer.addEventListener("dblclick", (event) => {
         if ([this.hypertabContainer, this.tabContentEl].includes(event.target))
-          newTab("ht://newtab");
+          newTab("cyb://newtab");
       });
 
       this.tabEls.forEach((tabEl) => this.setTabCloseEventListener(tabEl));
