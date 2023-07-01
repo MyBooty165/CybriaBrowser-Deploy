@@ -8,7 +8,6 @@ let history = {},
   sir = true;
 
 const htHandler = (url) => {
-  // handle URLs accessed through the `ht://` "protocol"
   url = url.slice(5);
   return (
     internal_pages[url] ||
@@ -45,7 +44,7 @@ function addPageToHistory(id, page) {
   history[id][1] = history[id][0].length - 1;
 }
 function getPage(id) {
-  return ((history[id] || [])[0] || [])[history[id][1]] || htHandler("ht://newtab");
+  return ((history[id] || [])[0] || [])[history[id][1]] || htHandler("cyb://newtab");
 }
 function getBack(id) {
   sir = false;
@@ -226,9 +225,8 @@ function skipAd() {
   };
 }
 let newTab = (url, uxor = true) => {
-  // creates a new hypertab!!
   chromeTabs.addTab({
-    title: "New Hypertab",
+    title: "New Tab",
     favicon: "favicon.ico",
   });
 
@@ -237,7 +235,7 @@ let newTab = (url, uxor = true) => {
   let frameId = tabNum++;
   let frame = document.createElement("IFRAME");
 
-  if (url.startsWith("ht://")) {
+  if (url.startsWith("cyb://")) {
     frame.setAttribute("src", htHandler(url));
   }
   else if (uxor == false) {
@@ -312,7 +310,7 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
     }
     return;
   }
-  if (URL_BAR.value.startsWith("ht://")) {
+  if (URL_BAR.value.startsWith("cyb://")) {
     value = htHandler(URL_BAR.value);
     document.getElementById(getActiveFrameId()).src = value;
     return;
@@ -508,4 +506,4 @@ if (localStorage.getItem("ctPins")) {
 let addEl = (a, b, c) =>
   Object.assign(b.appendChild(document.createElement(a)), c);
 
-newTab("ht://newtab");
+newTab("cyb://newtab");
