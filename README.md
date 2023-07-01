@@ -1,4 +1,3 @@
-# Hypertabs
-Hypertabs web proxy
+# CybriaBrowser
 
-This will be filled out later
+CybriaBrowser Is A Sophisticated Web-Proxy Made To Bypass All Restrictions
